@@ -4,6 +4,7 @@
 #include<unordered_set>
 #include <list>
 #include "Vertex.h"
+#include "ValidationFunctionsForTheInput.h"
 
 const int FIRST_POSITION = 0;
 
@@ -24,6 +25,7 @@ private:
 	void readInput(std::istream& is);
 	int readNumberOfVertices(std::istream& is);
 	void readLine(std::istream& is);
+	void emptyingTopologicallySortedVertices();
 
 private:
 	std::unordered_map<std::string, Vertex> graph;

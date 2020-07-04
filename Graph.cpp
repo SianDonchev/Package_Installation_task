@@ -46,7 +46,11 @@ void Graph::DFS_VISIT(std::string vertexName)
 
 std::list<std::string> Graph::topologicalSort()
 {
+	emptyingTopologicallySortedVertices();
+
 	DFS();
+	topologicallySorted.reverse();
+	
 	return topologicallySorted;
 }
 
@@ -67,10 +71,15 @@ void Graph::readInput(std::istream& is)
 
 int Graph::readNumberOfVertices(std::istream& is)
 {
-	int numOfVertices;
+	std::string numOfVertices;
 	is >> numOfVertices;
 
-	return numOfVertices;
+	if (!isNumber(numOfVertices))
+	{
+		throw std::logic_error("You have entered an invalid input");
+	}
+
+	return std::stoi(numOfVertices);
 }
 
 void Graph::readLine(std::istream& is)
@@ -88,4 +97,9 @@ void Graph::readLine(std::istream& is)
 		addVertex(nameOfadjacentVertex);
 		addAdjacentVertexForSpecificVertex(nameOfadjacentVertex, vertexName);
 	}
+}
+
+void Graph::emptyingTopologicallySortedVertices()
+{
+	topologicallySorted = std::list<std::string>();
 }
