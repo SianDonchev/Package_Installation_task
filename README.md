@@ -1,16 +1,11 @@
-# Package_Installation_task
-Нека имаме списък с N на брой пакети, всеки от които зависи на други пакети от списъка.
-Напишете конзолно приложение, което да приема от стандартния вход числото N (брой
-редове) и съответните редове, като на всеки ред първо пишем името на пакета, а след
-това изброяваме чрез интервали пакетите, на които зависи. Ако на реда има само име на
-пакет то се счита, че пакетът няма зависимости. Приложението трябва да печата на
-конзолата ред, в който тези пакети могат да бъдат инсталирани успешно.
+# Package Installation task
+A console application which lets the user inputs names
+of packages with dependencies between them and gives a possible order for their installation.
 
-Пояснение:
-Ако пакетът A зависи на пакета B и B не е инсталиран, то пакетът A не може да бъде
-инсталиран успешно, т.е. трябва да се инсталира първо B, след което А.
+The format of the input is: Firstly, the application expects a number corresponding to the number of lines to be enterd.
+Secondly, each line expects the name of the package in a string format, followed by the name of the packages it depends on.
 
-Примерен вход:
+Example for input:
 
 7
 
@@ -28,7 +23,7 @@ F C
 
 G
 
-Примерен изход:
-(възможни са няколко решения)
+Possible output:
+(There can be more than one solution)
 
 G D C F E B A
