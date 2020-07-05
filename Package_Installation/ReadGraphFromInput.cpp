@@ -28,7 +28,7 @@ int readNumberOfVertices(std::istream& is)
 
 	if (!isNumber(numOfVertices))
 	{
-		throw std::logic_error("You hava entered an invalid input.");
+		throw std::logic_error("You have entered an invalid input.");
 	}
 
 	return std::stoi(numOfVertices);
