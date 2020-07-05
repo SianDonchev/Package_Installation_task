@@ -1,7 +1,7 @@
 #include "Graph.h"
 #include "ReadGraphFromInput.h"
 
-void printList(const std::list<std::string> l)
+void printList(const std::list<std::string>& l)
 {
 	for (std::string s : l)
 	{
