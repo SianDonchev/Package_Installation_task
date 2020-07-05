@@ -28,9 +28,13 @@ int main()
 	try {
 		packagesInstallationTask();
 	}
-	catch (std::logic_error& e)
+	catch (std::invalid_argument& e)
 	{
 		std::cerr << e.what();
+	}
+	catch (std::logic_error& e)
+	{
+		std::cerr << "There is interdependent packages, so there is no possible solution.";
 	}
 
 	return 0;

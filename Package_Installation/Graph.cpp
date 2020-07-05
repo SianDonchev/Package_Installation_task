@@ -17,7 +17,7 @@ void Graph::dfs()
 {
 	for(const std::string& vertexName : allVertices)
 	{
-		if (!graph[vertexName].isVisited())
+		if (graph[vertexName].isUnexplored())
 		{
 			dfsVisit(vertexName);
 		}
@@ -31,12 +31,17 @@ void Graph::dfsVisit(const std::string& vertexName)
 
 	for (std::string adjacentVertex : adjacentVertices)
 	{
-		if (!graph[adjacentVertex].isVisited())
+		if (graph[adjacentVertex].isUnexplored())
 		{
+			graph[adjacentVertex].markAsDiscovered();
 			dfsVisit(adjacentVertex);
 		}
+		else if (graph[adjacentVertex].isDiscovered())
+		{
+			throw std::logic_error("There is a cycle in the graph");
+		}
 	}
-	graph[vertexName].markAsVisited();
+	graph[vertexName].markAsExplored();
 	topologicallySorted.push_front(vertexName);
 }
 
